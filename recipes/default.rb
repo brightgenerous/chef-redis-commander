@@ -1,5 +1,9 @@
 
-include_recipe "node"
+if node[:chef_redis_commander][:nodejs]
+  include_recipe "nodejs"
+else
+  include_recipe "node"
+end
 
 # Node module Redis commander install
 node_npm "redis-commander" do
